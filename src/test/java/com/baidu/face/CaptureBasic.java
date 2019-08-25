@@ -199,7 +199,12 @@ public class CaptureBasic extends JPanel {
         inputStream.read(bytes);
         byte[] bytes1 = new byte[inputStream1.available()];
         inputStream1.read(bytes1);
-        this.match(Base64Util.encode(bytes),Base64Util.encode(bytes1));
+        double match = this.match(Base64Util.encode(bytes), Base64Util.encode(bytes1));
+        if(match>=80){
+            System.out.println("匹配成功");
+        }else {
+            System.out.println("匹配失败");
+        }
         inputStream.close();
         inputStream1.close();
     }
@@ -212,8 +217,8 @@ public class CaptureBasic extends JPanel {
      * @param baseA 图片a
      * @param baseB	图片b
      */
-    public void match(String baseA,String baseB) {
-
+    public double match(String baseA,String baseB) {
+        Double result=0.0;
         AipFace client = new AipFace(APP_ID, API_KEY, SECRET_KEY);
         ArrayList<MatchRequest> requests = new ArrayList<MatchRequest>();
         requests.add(new MatchRequest(baseA, "BASE64"));
@@ -224,10 +229,12 @@ public class CaptureBasic extends JPanel {
             System.out.println(jsonObj);
             JSONObject scoreObj = (JSONObject) jsonObj.get("result");
             Double score =(Double) scoreObj.get("score");
-            System.out.println(score);
+            System.out.println("照片匹配度:"+(double) Math.round(score * 100) / 100);
+            result= (double) Math.round(score * 100) / 100;
         } catch (JSONException e) {
             System.out.println("认证失败!");
         }
+        return result;
     }
 
 }
