@@ -3,6 +3,9 @@ package com.baidu.face;
 import com.baidu.aip.face.AipFace;
 import com.baidu.aip.face.MatchRequest;
 import com.baidu.aip.util.Base64Util;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamUtils;
+import com.github.sarxos.webcam.util.ImageUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -235,6 +238,20 @@ public class CaptureBasic extends JPanel {
             System.out.println("认证失败!");
         }
         return result;
+    }
+
+    @Test
+    public void test(){
+        Webcam webcam = Webcam.getDefault();
+        System.out.println(webcam);
+        //初始化
+        File file = new File("C://system");
+        file.mkdir();
+        //获取视屏流
+        WebcamUtils.capture(webcam, file+"/system");
+
+        byte[] bytes = WebcamUtils.getImageBytes(webcam, ImageUtils.FORMAT_PNG);
+        System.out.println(bytes);
     }
 
 }
