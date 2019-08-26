@@ -25,7 +25,7 @@ public class OCRController {
     /**
      * 接口申请免费，请自行申请使用，如果学习使用可以用下
      */
-    /*public static final String APP_ID = "15742445";
+    /**public static final String APP_ID = "15742445";
     public static final String API_KEY = "LXrztEOzQxfef66DLIDQYpIG";
     public static final String SECRET_KEY = "gbDodnochc8jYjlAHADDgyyas9mrlmkF";
     */
