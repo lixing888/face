@@ -3,17 +3,19 @@ package com.baidu.face;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
  * 文字转语音测试
- * jdk bin文件中需要导入jacob-1.17-M2-x64.dll
- * @author lx
+ * jdk bin文件中需要导入jacob-1.18-M2-x64.dll
+ * @author lixing
  *@date: 2019年8月25日 上午10:05:21
  */
+@Slf4j
 public class jacobTest {
     public static void main(String[] args) { ActiveXComponent ax = null;
-        String str="请A001号到3号窗口";
+        String str = "请A375号到1号窗口";
         //String str="华为 new bee";
         try { ax = new ActiveXComponent("Sapi.SpVoice");
 
@@ -57,6 +59,7 @@ public class jacobTest {
             spFileStream.safeRelease();
             spVoice.safeRelease();
             ax.safeRelease();
+            log.info("文字转语音成功!");
 
         } catch (Exception e) { e.printStackTrace();
         }
