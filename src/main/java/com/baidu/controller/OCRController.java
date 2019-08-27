@@ -33,6 +33,12 @@ public class OCRController {
     private static final String API_KEY = "WC1wOLjGjSCVa0X7CDWkdZbz";
     private static final String SECRET_KEY = "dqMAkX80svGFomgBA4LqOcuet7LvaGBx";
 
+    /**
+     *
+     * @param faceBase
+     * @return
+     * @throws IOException
+     */
     @RequestMapping(value = "/ocrimg", method = RequestMethod.POST)
     public Boolean ocrimg(String faceBase) throws IOException {
         System.out.println(faceBase);
