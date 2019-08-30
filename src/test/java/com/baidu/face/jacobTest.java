@@ -15,8 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class jacobTest {
     public static void main(String[] args) { ActiveXComponent ax = null;
-        String str = "请A375号到1号窗口";
-        //String str="华为 new bee";
+        //String str = "请A9527号到1号窗口";
+        String str = "雪压枝头低,虽低不着泥。一朝红日出,依旧与天齐。OK";
         try { ax = new ActiveXComponent("Sapi.SpVoice");
 
             //运行时输出语音内容
