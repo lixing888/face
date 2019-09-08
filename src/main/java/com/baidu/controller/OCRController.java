@@ -2,19 +2,12 @@ package com.baidu.controller;
 
 import com.baidu.aip.face.AipFace;
 import com.baidu.aip.face.MatchRequest;
-import com.baidu.aip.ocr.AipOcr;
-import com.baidu.aip.util.Base64Util;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * @author lixing
