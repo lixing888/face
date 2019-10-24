@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="img" onchange="getImg(event)" />
+<img id="showImg" src="" />
+</body>
+<script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+<script>
+    var access_token = "这里填写你的access_token";
+    // 监听图片选择事件
+    function getImg (event) {
+        var imageBase = "";
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = function (e) {
+            imageBase = e.target.result.replace("data:image/png;base64,","");
+            $("#showImg").prop("src", "data:image/png;base64," + imageBase);
+            $.ajax({
+                header: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                type: "post",
+                url: "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard",
+                async: true,
+                data: {
+                    access_token: access_token,
+                    id_card_side: "front",
+                    image: imageBase
+                },
+                dataType: "json",
+                timeout: 30000,
+                success: function (data) {
+                    console.log("解析成功");
+                    console.log(data);
+                },
+                error: function (xhr) {
+                    console.log("请求解析失败");
+                }
+            });
+        }
+    }
+</script>
+</html>

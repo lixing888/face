@@ -9,35 +9,34 @@ import com.github.sarxos.webcam.util.ImageUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
-import org.opencv.core.*;
 import org.opencv.core.Point;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.objdetect.HOGDescriptor;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
-import org.springframework.util.Base64Utils;
-import org.xmlunit.util.Convert;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Dictionary;
 
 public class CaptureBasic extends JPanel {
 
-    private BufferedImage mImg;
     /**
      * 接口申请免费，请自行申请使用，如果学习使用可以用下
      */
     private static final String APP_ID = "11275267";
     private static final String API_KEY = "WC1wOLjGjSCVa0X7CDWkdZbz";
     private static final String SECRET_KEY = "dqMAkX80svGFomgBA4LqOcuet7LvaGBx";
-
+    private BufferedImage mImg;
 
     public static void main(String[] args) {
         try {
@@ -203,9 +202,9 @@ public class CaptureBasic extends JPanel {
         byte[] bytes1 = new byte[inputStream1.available()];
         inputStream1.read(bytes1);
         double match = this.match(Base64Util.encode(bytes), Base64Util.encode(bytes1));
-        if(match>=80){
+        if (match >= 80) {
             System.out.println("匹配成功");
-        }else {
+        } else {
             System.out.println("匹配失败");
         }
         inputStream.close();
@@ -214,14 +213,14 @@ public class CaptureBasic extends JPanel {
 
 
     /**
-     *
      * <p>Title: go</p>
      * <p>Description: </p>
+     *
      * @param baseA 图片a
-     * @param baseB	图片b
+     * @param baseB 图片b
      */
-    public double match(String baseA,String baseB) {
-        Double result=0.0;
+    public double match(String baseA, String baseB) {
+        Double result = 0.0;
         AipFace client = new AipFace(APP_ID, API_KEY, SECRET_KEY);
         ArrayList<MatchRequest> requests = new ArrayList<MatchRequest>();
         requests.add(new MatchRequest(baseA, "BASE64"));
@@ -231,9 +230,9 @@ public class CaptureBasic extends JPanel {
             JSONObject jsonObj = new JSONObject(res.toString());
             System.out.println(jsonObj);
             JSONObject scoreObj = (JSONObject) jsonObj.get("result");
-            Double score =(Double) scoreObj.get("score");
-            System.out.println("照片匹配度:"+(double) Math.round(score * 100) / 100);
-            result= (double) Math.round(score * 100) / 100;
+            Double score = (Double) scoreObj.get("score");
+            System.out.println("照片匹配度:" + (double) Math.round(score * 100) / 100);
+            result = (double) Math.round(score * 100) / 100;
         } catch (JSONException e) {
             System.out.println("认证失败!");
         }
@@ -241,14 +240,14 @@ public class CaptureBasic extends JPanel {
     }
 
     @Test
-    public void test(){
+    public void test() {
         Webcam webcam = Webcam.getDefault();
         System.out.println(webcam);
         //初始化
         File file = new File("C://system");
         file.mkdir();
         //获取视屏流
-        WebcamUtils.capture(webcam, file+"/system");
+        WebcamUtils.capture(webcam, file + "/system");
 
         byte[] bytes = WebcamUtils.getImageBytes(webcam, ImageUtils.FORMAT_PNG);
         System.out.println(bytes);
