@@ -1,11 +1,11 @@
 package com.baidu.controller;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContext;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -25,11 +25,11 @@ public abstract class BaseController extends ApplicationObjectSupport {
     /**
      * 要跳转的页面
      *
-     * @Title: go
-     * @Description: TODO
      * @param path
      * @return
-     * @author  2017年9月15日 下午1:51:10
+     * @Title: go
+     * @Description: TODO
+     * @author 2017年9月15日 下午1:51:10
      */
     protected ModelAndView go(String path) {
         return new ModelAndView(path);
@@ -46,7 +46,6 @@ public abstract class BaseController extends ApplicationObjectSupport {
     }
 
 
-
     public HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
@@ -56,7 +55,7 @@ public abstract class BaseController extends ApplicationObjectSupport {
     }
 
     public HttpServletResponse getResponse() {
-        return  ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
     }
 
     /**
@@ -109,6 +108,7 @@ public abstract class BaseController extends ApplicationObjectSupport {
         }
         return true;
     }
+
     /**
      * 保存信息到request中
      *
@@ -145,20 +145,18 @@ public abstract class BaseController extends ApplicationObjectSupport {
     }
 
 
-
     /**
      * 方法名称: render<br>
      * 描述：返回给浏览器
      */
-    public void render(String text, String contentType){
+    public void render(String text, String contentType) {
         HttpServletResponse response;
-        try{
+        try {
             response = getResponse();
             response.setContentType(contentType);
             response.getWriter().write(text);
             response.getWriter().flush();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new IllegalStateException(e);
         }
     }
@@ -167,7 +165,7 @@ public abstract class BaseController extends ApplicationObjectSupport {
      * 方法名称: renderText<br>
      * 描述：返回普通文本浏览器
      */
-    public void renderText(String text){
+    public void renderText(String text) {
         render(text, "text/plain;charset=UTF-8");
     }
 
@@ -175,8 +173,8 @@ public abstract class BaseController extends ApplicationObjectSupport {
      * 方法名称: renderJson<br>
      * 描述：返回JSON格式数据
      */
-    public void renderJson(String text){
-        render(text,"text/json;charset=UTF-8");
+    public void renderJson(String text) {
+        render(text, "text/json;charset=UTF-8");
     }
 
     /**

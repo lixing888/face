@@ -22,15 +22,15 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/excel")
-@Api(tags = "excel导入导出",value = "excel导入导出", description = "excel导入导出")
+@Api(tags = "excel导入导出", value = "excel导入导出", description = "excel导入导出")
 public class ExcelController extends BaseController {
 
     @Autowired
     ExcelService excelService;
 
-    @ApiOperation(value = "导出execl",notes = "导出execl")
+    @ApiOperation(value = "导出execl", notes = "导出execl")
     @RequestMapping(value = "/exportExcel", method = RequestMethod.GET)
-    public void exportExcel()  throws IOException {
+    public void exportExcel() throws IOException {
 
         HttpServletResponse response = getHttpResponse();
         List<BusClick> resultList = excelService.getBusClick();
@@ -45,9 +45,9 @@ public class ExcelController extends BaseController {
     }
 
 
-    @ApiOperation(value = "读取execl",notes = "读取execl")
+    @ApiOperation(value = "读取execl", notes = "读取execl")
     @RequestMapping(value = "/readExcel", method = RequestMethod.POST)
-    public void readExcel(MultipartFile file){
+    public void readExcel(MultipartFile file) {
 
         long t1 = System.currentTimeMillis();
         List<BusClick> list = ExcelUtils.readExcel("", BusClick.class, file);
