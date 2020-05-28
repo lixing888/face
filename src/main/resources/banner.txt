@@ -1,0 +1,23 @@
+Spring Boot Version: ${spring-boot.version}
+////////////////////////////////////////////////////////////////////
+//${AnsiColor.BRIGHT_YELLOW}                           _ooOoo_                              ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                          o8888888o                             ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                          88" ${AnsiColor.BRIGHT_RED}. ${AnsiColor.BRIGHT_YELLOW}"88                             ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                          (| ^_^ |)                             ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                          O\  =  /O                             ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                       ____/`---'\____                          ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                     .'  \\|     |//  `.                        ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                    /  \\|||  :  |||//  \                       ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                   /  _||||| -:- |||||-  \                      ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                   |   | \\\  -  /// |   |                      ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                   | \_|  ''\---/''  |   |                      ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                   \  .-\__  `-`  ___/-. /                      ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                 ___`. .'  /--.--\  `. . ___                    ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}               ."" '<  `.___\_<|>_/___.'  >'"".                 ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}             | | :  `- \`.;`\ _ /`;.`/ - ` : | |                ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}             \  \ `-.   \_ __\ /__ _/   .-` /  /                ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}       ========`-.____`-.___\_____/___.-`____.-'========        ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}                            `=---='                             ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_YELLOW}       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^       ${AnsiColor.BLACK}//
+//${AnsiColor.BRIGHT_RED}             佛祖保佑       永不宕机      永无BUG                 ${AnsiColor.BLACK}//
+////////////////////////////////////////////////////////////////////
