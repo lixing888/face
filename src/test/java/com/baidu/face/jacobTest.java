@@ -10,9 +10,14 @@ import java.util.Date;
 
 
 /**
+ * https://www.cnblogs.com/kkxwze/p/11123708.html
  * 文字转语音测试
  * jdk bin文件中需要导入jacob-1.18-M2-x64.dll
- *
+ * 引入jacob.jar包
+ * ==============
+ * (解压jar包，将jacob.jar复制到工程目录，右键该文件→Build Path→Add to...
+ * 将(64位系统添加)jacob-1.18-M2-x64.dll添加到JDK的bin目录和Windows的system32目录和SysWOW64 (以防出错添加)
+ * （32位系统添加jacob-1.18-M2-x86.dll）
  * @author lixing
  * @date: 2019年8月25日 上午10:05:21
  */
